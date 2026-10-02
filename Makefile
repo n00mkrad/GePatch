@@ -1,5 +1,6 @@
 all:
-	cp $(TARGET).prx E:/pspemu/seplugins/$(TARGET).prx
+	mkdir -p build
+	cp $(TARGET).prx build/$(TARGET).prx
 
 TARGET = ge_patch
 OBJS = main.o gu.o exports.o

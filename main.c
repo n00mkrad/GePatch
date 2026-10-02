@@ -57,7 +57,7 @@ int checkAddress(u32 addr) {
     // log("vram address: %08x\n", addr);
     return -1;
   }
-  log("invalid address: %08x\n", addr);
+  log("invalid address: %08lx\n", (unsigned long)addr);
   return -1;
 }
 
@@ -814,21 +814,21 @@ int module_start(SceSize args, void *argp) {
   if (pad.Buttons & PSP_CTRL_LTRIGGER)
     return 0;
 
-  _sceGeEdramGetAddr = (void *)FindProc("sceGE_Manager", "sceGe_driver", 0xE47E40E4);
-  _sceGeEdramGetSize = (void *)FindProc("sceGE_Manager", "sceGe_driver", 0x1F6752AD);
-  _sceGeGetList = (void *)FindProc("sceGE_Manager", "sceGe_driver", 0x67B01D8E);
-  _sceGeListUpdateStallAddr = (void *)FindProc("sceGE_Manager", "sceGe_driver", 0xE0D68148);
-  _sceGeListEnQueue = (void *)FindProc("sceGE_Manager", "sceGe_driver", 0xAB49E76A);
-  _sceGeListEnQueueHead = (void *)FindProc("sceGE_Manager", "sceGe_driver", 0x1C0D95A6);
+  _sceGeEdramGetAddr = (void *)sctrlHENFindFunction("sceGE_Manager", "sceGe_driver", 0xE47E40E4);
+  _sceGeEdramGetSize = (void *)sctrlHENFindFunction("sceGE_Manager", "sceGe_driver", 0x1F6752AD);
+  _sceGeGetList = (void *)sctrlHENFindFunction("sceGE_Manager", "sceGe_driver", 0x67B01D8E);
+  _sceGeListUpdateStallAddr = (void *)sctrlHENFindFunction("sceGE_Manager", "sceGe_driver", 0xE0D68148);
+  _sceGeListEnQueue = (void *)sctrlHENFindFunction("sceGE_Manager", "sceGe_driver", 0xAB49E76A);
+  _sceGeListEnQueueHead = (void *)sctrlHENFindFunction("sceGE_Manager", "sceGe_driver", 0x1C0D95A6);
 
-  sctrlHENPatchSyscall((u32)_sceGeEdramGetAddr, sceGeEdramGetAddrPatched);
-  sctrlHENPatchSyscall((u32)_sceGeEdramGetSize, sceGeEdramGetSizePatched);
-  sctrlHENPatchSyscall((u32)_sceGeListUpdateStallAddr, sceGeListUpdateStallAddrPatched);
-  sctrlHENPatchSyscall((u32)_sceGeListEnQueue, sceGeListEnQueuePatched);
-  sctrlHENPatchSyscall((u32)_sceGeListEnQueueHead, sceGeListEnQueueHeadPatched);
+  sctrlHENPatchSyscall((void *)_sceGeEdramGetAddr, sceGeEdramGetAddrPatched);
+  sctrlHENPatchSyscall((void *)_sceGeEdramGetSize, sceGeEdramGetSizePatched);
+  sctrlHENPatchSyscall((void *)_sceGeListUpdateStallAddr, sceGeListUpdateStallAddrPatched);
+  sctrlHENPatchSyscall((void *)_sceGeListEnQueue, sceGeListEnQueuePatched);
+  sctrlHENPatchSyscall((void *)_sceGeListEnQueueHead, sceGeListEnQueueHeadPatched);
 
-  _sceDisplaySetFrameBuf = (void *)FindProc("sceDisplay_Service", "sceDisplay_driver", 0x289D82FE);
-  sctrlHENPatchSyscall((u32)_sceDisplaySetFrameBuf, sceDisplaySetFrameBufPatched);
+  _sceDisplaySetFrameBuf = (void *)sctrlHENFindFunction("sceDisplay_Service", "sceDisplay_driver", 0x289D82FE);
+  sctrlHENPatchSyscall((void *)_sceDisplaySetFrameBuf, sceDisplaySetFrameBufPatched);
 
   sceKernelDcacheWritebackInvalidateAll();
   sceKernelIcacheClearAll();
