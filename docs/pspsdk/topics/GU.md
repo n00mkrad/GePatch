@@ -1,0 +1,106 @@
+[PSPSDK documentation](../README.md) › Topics
+
+# Graphics Utility Library
+
+Headers: [`gu/pspgu.h`](../files/gu/pspgu.h.md)
+
+## Functions
+
+- [`sceGuDepthBuffer()`](../files/gu/pspgu.h.md#scegudepthbuffer) – Set depth buffer parameters.
+- [`sceGuDispBuffer()`](../files/gu/pspgu.h.md#scegudispbuffer) – Set display buffer parameters.
+- [`sceGuDrawBuffer()`](../files/gu/pspgu.h.md#scegudrawbuffer) – Set draw buffer parameters (and store in context for buffer-swap)
+- [`sceGuDrawBufferList()`](../files/gu/pspgu.h.md#scegudrawbufferlist) – Set draw buffer directly, not storing parameters in the context.
+- [`sceGuDisplay()`](../files/gu/pspgu.h.md#scegudisplay) – Turn display on or off.
+- [`sceGuDepthFunc()`](../files/gu/pspgu.h.md#scegudepthfunc) – Select which depth-test function to use.
+- [`sceGuDepthMask()`](../files/gu/pspgu.h.md#scegudepthmask) – Mask depth buffer writes.
+- [`sceGuDepthOffset()`](../files/gu/pspgu.h.md#scegudepthoffset)
+- [`sceGuDepthRange()`](../files/gu/pspgu.h.md#scegudepthrange) – Set which range to use for depth calculations.
+- [`sceGuFog()`](../files/gu/pspgu.h.md#scegufog)
+- [`sceGuInit()`](../files/gu/pspgu.h.md#sceguinit) – Initalize the GU system.
+- [`sceGuTerm()`](../files/gu/pspgu.h.md#sceguterm) – Shutdown the GU system.
+- [`guGetInit()`](../files/gu/pspgu.h.md#gugetinit) – Get if the GU system has been initialized.
+- [`sceGuBreak()`](../files/gu/pspgu.h.md#scegubreak) – Break the display list.
+- [`sceGuContinue()`](../files/gu/pspgu.h.md#scegucontinue) – Continue the display list.
+- [`sceGuSetCallback()`](../files/gu/pspgu.h.md#scegusetcallback) – Setup signal handler.
+- [`sceGuSignal()`](../files/gu/pspgu.h.md#scegusignal) – Trigger signal to call code from the command stream.
+- [`sceGuSendCommandf()`](../files/gu/pspgu.h.md#scegusendcommandf) – Send raw float-command to the GE.
+- [`sceGuSendCommandi()`](../files/gu/pspgu.h.md#scegusendcommandi) – Send raw command to the GE.
+- [`sceGuGetMemory()`](../files/gu/pspgu.h.md#scegugetmemory) – Allocate memory on the current display list for temporary storage.
+- [`sceGuStart()`](../files/gu/pspgu.h.md#scegustart) – Start filling a new display-context.
+- [`sceGuFinish()`](../files/gu/pspgu.h.md#scegufinish) – Finish current display list and go back to the parent context.
+- [`sceGuFinishId()`](../files/gu/pspgu.h.md#scegufinishid) – Finish current display list and go back to the parent context, sending argument id for the finish callback.
+- [`sceGuCallList()`](../files/gu/pspgu.h.md#scegucalllist) – Call previously generated display-list.
+- [`sceGuCallMode()`](../files/gu/pspgu.h.md#scegucallmode) – Set wether to use stack-based calls or signals to handle execution of called lists.
+- [`sceGuCheckList()`](../files/gu/pspgu.h.md#sceguchecklist) – Check how large the current display-list is.
+- [`sceGuSendList()`](../files/gu/pspgu.h.md#scegusendlist) – Send a list to the GE directly.
+- [`sceGuSwapBuffers()`](../files/gu/pspgu.h.md#sceguswapbuffers) – Swap display and draw buffer.
+- [`sceGuSync()`](../files/gu/pspgu.h.md#scegusync) – Wait until display list has finished executing.
+- [`sceGuDrawArray()`](../files/gu/pspgu.h.md#scegudrawarray) – Draw array of vertices forming primitives.
+- [`sceGuBeginObject()`](../files/gu/pspgu.h.md#scegubeginobject) – Begin conditional rendering of object.
+- [`sceGuEndObject()`](../files/gu/pspgu.h.md#sceguendobject) – End conditional rendering of object.
+- [`sceGuSetStatus()`](../files/gu/pspgu.h.md#scegusetstatus) – Enable or disable GE state.
+- [`sceGuGetStatus()`](../files/gu/pspgu.h.md#scegugetstatus) – Get if state is currently enabled or disabled.
+- [`sceGuSetAllStatus()`](../files/gu/pspgu.h.md#scegusetallstatus) – Set the status on all 22 available states.
+- [`sceGuGetAllStatus()`](../files/gu/pspgu.h.md#scegugetallstatus) – Query status on all 22 available states.
+- [`sceGuEnable()`](../files/gu/pspgu.h.md#sceguenable) – Enable GE state.
+- [`sceGuDisable()`](../files/gu/pspgu.h.md#scegudisable) – Disable GE state.
+- [`sceGuLight()`](../files/gu/pspgu.h.md#scegulight) – Set light parameters.
+- [`sceGuLightAtt()`](../files/gu/pspgu.h.md#scegulightatt) – Set light attenuation.
+- [`sceGuLightColor()`](../files/gu/pspgu.h.md#scegulightcolor) – Set light color.
+- [`sceGuLightMode()`](../files/gu/pspgu.h.md#scegulightmode) – Set light mode.
+- [`sceGuLightSpot()`](../files/gu/pspgu.h.md#scegulightspot) – Set spotlight parameters.
+- [`sceGuClear()`](../files/gu/pspgu.h.md#sceguclear) – Clear current drawbuffer.
+- [`sceGuClearColor()`](../files/gu/pspgu.h.md#sceguclearcolor) – Set the current clear-color.
+- [`sceGuClearDepth()`](../files/gu/pspgu.h.md#scegucleardepth) – Set the current clear-depth.
+- [`sceGuClearStencil()`](../files/gu/pspgu.h.md#sceguclearstencil) – Set the current stencil clear value.
+- [`sceGuPixelMask()`](../files/gu/pspgu.h.md#scegupixelmask) – Set mask for which bits of the pixels to write.
+- [`sceGuColor()`](../files/gu/pspgu.h.md#scegucolor) – Set current primitive color.
+- [`sceGuColorFunc()`](../files/gu/pspgu.h.md#scegucolorfunc) – Set the color test function.
+- [`sceGuColorMaterial()`](../files/gu/pspgu.h.md#scegucolormaterial) – Set which color components that the material will receive.
+- [`sceGuAlphaFunc()`](../files/gu/pspgu.h.md#scegualphafunc) – Set the alpha test parameters.
+- [`sceGuAmbient()`](../files/gu/pspgu.h.md#sceguambient) – Set the ambient light color.
+- [`sceGuAmbientColor()`](../files/gu/pspgu.h.md#sceguambientcolor) – Set the ambient color.
+- [`sceGuBlendFunc()`](../files/gu/pspgu.h.md#scegublendfunc) – Set the blending-mode.
+- [`sceGuMaterial()`](../files/gu/pspgu.h.md#scegumaterial)
+- [`sceGuModelColor()`](../files/gu/pspgu.h.md#scegumodelcolor)
+- [`sceGuStencilFunc()`](../files/gu/pspgu.h.md#scegustencilfunc) – Set stencil function and reference value for stencil testing.
+- [`sceGuStencilOp()`](../files/gu/pspgu.h.md#scegustencilop) – Set the stencil test actions.
+- [`sceGuSpecular()`](../files/gu/pspgu.h.md#sceguspecular) – Set the specular power for the material.
+- [`sceGuFrontFace()`](../files/gu/pspgu.h.md#scegufrontface) – Set the current face-order (for culling)
+- [`sceGuLogicalOp()`](../files/gu/pspgu.h.md#scegulogicalop) – Set color logical operation.
+- [`sceGuSetDither()`](../files/gu/pspgu.h.md#scegusetdither) – Set ordered pixel dither matrix.
+- [`sceGuShadeModel()`](../files/gu/pspgu.h.md#scegushademodel) – Set how primitives are shaded.
+- [`sceGuCopyImage()`](../files/gu/pspgu.h.md#scegucopyimage) – Image transfer using the GE.
+- [`sceGuTexEnvColor()`](../files/gu/pspgu.h.md#scegutexenvcolor) – Specify the texture environment color.
+- [`sceGuTexFilter()`](../files/gu/pspgu.h.md#scegutexfilter) – Set how the texture is filtered.
+- [`sceGuTexFlush()`](../files/gu/pspgu.h.md#scegutexflush) – Flush texture page-cache.
+- [`sceGuTexFunc()`](../files/gu/pspgu.h.md#scegutexfunc) – Set how textures are applied.
+- [`sceGuTexImage()`](../files/gu/pspgu.h.md#sceguteximage) – Set current texturemap.
+- [`sceGuTexLevelMode()`](../files/gu/pspgu.h.md#scegutexlevelmode) – Set texture-level mode (mipmapping)
+- [`sceGuTexMapMode()`](../files/gu/pspgu.h.md#scegutexmapmode) – Set the texture-mapping mode.
+- [`sceGuTexMode()`](../files/gu/pspgu.h.md#scegutexmode) – Set texture-mode parameters.
+- [`sceGuTexOffset()`](../files/gu/pspgu.h.md#scegutexoffset) – Set texture offset.
+- [`sceGuTexProjMapMode()`](../files/gu/pspgu.h.md#scegutexprojmapmode) – Set texture projection-map mode.
+- [`sceGuTexScale()`](../files/gu/pspgu.h.md#scegutexscale) – Set texture scale.
+- [`sceGuTexSlope()`](../files/gu/pspgu.h.md#scegutexslope)
+- [`sceGuTexSync()`](../files/gu/pspgu.h.md#scegutexsync) – Synchronize rendering pipeline with image upload.
+- [`sceGuTexWrap()`](../files/gu/pspgu.h.md#scegutexwrap) – Set if the texture should repeat or clamp.
+- [`sceGuClutLoad()`](../files/gu/pspgu.h.md#sceguclutload) – Upload CLUT (Color Lookup Table)
+- [`sceGuClutMode()`](../files/gu/pspgu.h.md#sceguclutmode) – Set current CLUT mode.
+- [`sceGuOffset()`](../files/gu/pspgu.h.md#sceguoffset) – Set virtual coordinate offset.
+- [`sceGuScissor()`](../files/gu/pspgu.h.md#sceguscissor) – Set what to scissor within the current viewport.
+- [`sceGuViewport()`](../files/gu/pspgu.h.md#sceguviewport) – Set current viewport.
+- [`sceGuDrawBezier()`](../files/gu/pspgu.h.md#scegudrawbezier) – Draw bezier surface.
+- [`sceGuPatchDivide()`](../files/gu/pspgu.h.md#scegupatchdivide) – Set dividing for patches (beziers and splines)
+- [`sceGuPatchFrontFace()`](../files/gu/pspgu.h.md#scegupatchfrontface) – Set front face for patches (beziers and splines)
+- [`sceGuPatchPrim()`](../files/gu/pspgu.h.md#scegupatchprim) – Set primitive for patches (beziers and splines)
+- [`sceGuDrawSpline()`](../files/gu/pspgu.h.md#scegudrawspline)
+- [`sceGuSetMatrix()`](../files/gu/pspgu.h.md#scegusetmatrix) – Set transform matrices.
+- [`sceGuBoneMatrix()`](../files/gu/pspgu.h.md#scegubonematrix) – Specify skinning matrix entry.
+- [`sceGuMorphWeight()`](../files/gu/pspgu.h.md#scegumorphweight) – Specify morph weight entry.
+- [`sceGuDrawArrayN()`](../files/gu/pspgu.h.md#scegudrawarrayn) – Draw an array of primitives.
+- [`guSwapBuffersBehaviour()`](../files/gu/pspgu.h.md#guswapbuffersbehaviour) – Set how the display should be set.
+- [`guSwapBuffersCallback()`](../files/gu/pspgu.h.md#guswapbufferscallback-1) – Set a buffer swap callback to allow for more advanced buffer methods without hacking the library.
+- [`guGetStaticVramBuffer()`](../files/gu/pspgu.h.md#gugetstaticvrambuffer) – Allocate a draw buffer in vram.
+- [`guGetStaticVramTexture()`](../files/gu/pspgu.h.md#gugetstaticvramtexture) – Allocate a texture in vram.
+- [`guGetDisplayState()`](../files/gu/pspgu.h.md#gugetdisplaystate) – Get state of display.
